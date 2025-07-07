@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "SHU",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -37.8, "left": -115.8, "attrs": {} },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": 13.8, "left": 249.7, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 224.45,
+      "left": 130.94,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 252.2,
+      "left": -192.6,
+      "attrs": {}
+    },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 240.76, "left": -57.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 307.2, "left": -48.6, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -189.6,
+      "left": 49.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "rtc1:SCL", "uno:A5.2", "green", [ "h-39.17", "v-125.23", "h-203.01" ] ],
+    [ "rtc1:SDA", "uno:A4.2", "green", [ "h-23.79", "v-109.57", "h-208.39" ] ],
+    [ "rtc1:5V", "uno:5V", "red", [ "h-16.1", "v158.34", "h-205.37" ] ],
+    [ "rtc1:GND", "uno:GND.2", "black", [ "h-28.41", "v158.34", "h-183.56" ] ],
+    [ "lcd1:GND", "uno:GND.3", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "lcd1:SDA", "uno:A4", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h-21.79", "v-113.91", "h22.02" ] ],
+    [ "uno:A0", "ntc1:OUT", "green", [ "v0" ] ],
+    [ "ntc1:VCC", "vcc1:VCC", "red", [ "h0" ] ],
+    [ "ntc1:GND", "gnd1:GND", "black", [ "h19.2" ] ],
+    [ "bz1:1", "uno:GND.1", "black", [ "v9.6", "h-67.2" ] ],
+    [ "bz1:2", "uno:7", "green", [ "v19.2", "h-19.6" ] ]
+  ],
+  "dependencies": {}
+}
